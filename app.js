@@ -79,7 +79,7 @@ var client = new Paho.Client('164.52.193.83', 1884, "clientIdj");
 client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
 
-client.connect({ onSuccess: onConnect });
+client.connect({ onSuccess: onConnect, useSSL:true });
 
 
 function onConnect() {
