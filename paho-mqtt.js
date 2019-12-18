@@ -1051,6 +1051,7 @@ function onMessageArrived(message) {
 			if (this.connectOptions.mqttVersion < 4) {
 				this.socket = new WebSocket(wsurl, ["mqttv3.1"]);
 			} else {
+				console.log(wsurl, "UWSSF");
 				this.socket = new WebSocket(wsurl, ["mqtt"]);
 			}
 			this.socket.binaryType = "arraybuffer";
