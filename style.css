@@ -106,3 +106,26 @@ background: linear-gradient(10deg, rgba(241,141,17,1) 0%, rgba(249,139,3,1) 1%, 
     color: white;
     font-size: 13px;
 }
+canvas{
+    width: 100% !important;
+    height: 100% !important;
+}
+@media screen and (max-width: 600px) {
+    #dash-content-1{
+        display: block;
+        flex-wrap: wrap;
+    }
+    #dash-content-1-left, #dash-content-1-right{
+        width: 100%;
+    }
+   
+    #dash-content-1-right{
+        min-height: 445px;
+    }
+    #chart-container{
+        min-height: 445px;
+    }
+    #chart{
+        min-height: 445px;
+    }
+}

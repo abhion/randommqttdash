@@ -11,17 +11,17 @@ const avgVolt = document.querySelector('#avgVolt');
 var ctx = document.getElementById('myChart');
 var ctx = document.getElementById('myChart').getContext('2d');
 
-let returnCarbonArray = [], supplyCarbArray = [], ampArray = [], voltArray = [];
+let returnCarbonArray = [], supplyCarbArray = [], ampArray = [], voltArray = [], averageArray = [];
 
 
 
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow'],
+        labels: ['Return CO2', 'Supply CO2', 'Amps', 'Volts'],
         datasets: [{
-            label: '# of Votes',
-            data: [{x:12, y: 19}, {x:3, y:5}, {x:2, y:3}],
+            label: '# values',
+            data: [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -66,7 +66,7 @@ function onConnectionLost(responseObject) {
     }
 }
 function onMessageArrived(message) {
-    debugger
+    
     let messageArrived = null;
     if (message) {
         messageArrived = JSON.parse(JSON.stringify(message));
@@ -104,6 +104,7 @@ function refreshValues(){
     if(returnCarbonArray.length){
         retCarbVal.innerText = (+returnCarbonArray[returnCarbonArray.length - 1]).toFixed(2);
         avgRetCarb.innerText = calculateAverage(returnCarbonArray);
+        averageArray[0] =  calculateAverage(returnCarbonArray);
     }
     else{
         retCarbVal.innerText = 0;
@@ -113,6 +114,7 @@ function refreshValues(){
     if(voltArray.length){
         voltVal.innerText = (+voltArray[voltArray.length - 1]).toFixed(2);
         avgVolt.innerText = calculateAverage(voltArray);
+        averageArray[1] =  calculateAverage(voltArray);
     }
     else{
         voltVal.innerText = 0;
@@ -122,6 +124,8 @@ function refreshValues(){
     if(supplyCarbArray.length){
         supCarbVal.innerText = (+supplyCarbArray[supplyCarbArray.length - 1]).toFixed(2);
     avgSupCarb.innerText = calculateAverage(supplyCarbArray);
+    averageArray[2] =  calculateAverage(supplyCarbArray);
+    
     }
     else{
         supCarbVal.innerText = 0;
@@ -131,6 +135,7 @@ function refreshValues(){
     if(ampArray.length){
         ampVal.innerText = (+ampArray[ampArray.length - 1]).toFixed(2);
         avgAmp.innerText = calculateAverage(ampArray);
+        averageArray[3] =  calculateAverage(ampArray);
     }
     else{
         ampVal.innerText = 0;

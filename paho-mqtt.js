@@ -1037,7 +1037,7 @@ function onMessageArrived(message) {
 		};
 
 		ClientImpl.prototype._doConnect = function (wsurl) {
-			debugger
+			
 		// When the socket is open, this client will send the CONNECT WireMessage using the saved parameters.
 			if (this.connectOptions.useSSL) {
 				var uriParts = wsurl.split(":");
