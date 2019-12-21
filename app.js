@@ -1,8 +1,3 @@
-const subCoLi = document.querySelector('#sub-co-li');
-const subCo = document.querySelector('#sub-co');
-const subCoChev = document.querySelector('#sub-co-chev');
-const searchBtn = document.querySelector('#searchBtn');
-const searchBox = document.querySelector('#searchBox');
 
 const retCarbVal = document.querySelector('#retCarbVal');
 const supCarbVal = document.querySelector('#supCarbVal');
@@ -13,66 +8,43 @@ const avgRetCarb = document.querySelector('#avgRetCarb');
 const avgSupCarb = document.querySelector('#avgSupCarb');
 const avgAmp = document.querySelector('#avgAmp');
 const avgVolt = document.querySelector('#avgVolt');
-const headerDropdown = document.querySelector('#header-dropdown');
-const theDropdown = document.querySelector('#the-dropdown');
-
-// var ctx = document.getElementById('myChart');
-// var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart');
+var ctx = document.getElementById('myChart').getContext('2d');
 
 let returnCarbonArray = [], supplyCarbArray = [], ampArray = [], voltArray = [];
 
 
-headerDropdown.addEventListener('click', function(){
-    theDropdown.classList.add('active');
-})
-// headerDropdown.addEventListener('mouseleave', function(){
-//     theDropdown.classList.remove('active');
-// })
 
-subCoLi.addEventListener('click', function () {
-    debugger
-    subCo.classList.toggle('active');
-    subCoChev.classList.toggle('fa-rotate-90');
-})
-
-searchBtn.addEventListener('mouseover', function () {
-    searchBox.classList.add('active');
-})
-searchBox.addEventListener('mouseleave', function () {
-    searchBox.classList.remove('active');
-})
-
-
-// new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Red', 'Blue', 'Yellow'],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: [{x:12, y: 19}, {x:3, y:5}, {x:2, y:3}],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-// });
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow'],
+        datasets: [{
+            label: '# of Votes',
+            data: [{x:12, y: 19}, {x:3, y:5}, {x:2, y:3}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
 
 var client = new Paho.Client('164.52.193.83', 1884, "clientIdj");
 
@@ -176,7 +148,7 @@ function refreshChart(){
 
 
 //setInterval(refreshChart, 1000);
-setInterval(refreshValues, 52000);
+setInterval(refreshValues, 3000);
 
 // {
 //     "payloadString": "1.1188553039612654",
