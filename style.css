@@ -117,9 +117,15 @@ canvas{
     height: 100% !important;
 }
 @media screen and (max-width: 600px) {
+    html{
+        font-size: 13px;
+    }
     #dash-content-1{
         display: block;
         flex-wrap: wrap;
+    }
+    #dateTime{
+        font-size: 0.8rem;
     }
     #dash-content-1-left, #dash-content-1-right{
         width: 100%;

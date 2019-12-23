@@ -172,6 +172,8 @@ function refreshChart(){
 //setInterval(refreshChart, 1000);
 setInterval(refreshValues, 3000);
 
+
+
 // {
 //     "payloadString": "1.1188553039612654",
 //     "payloadBytes":{"0":49,"1":46,"2":49,"3":49,"4":56,"5":56,"6":53,"7":53,"8":51,"9":48,"10":51,"11":57,"12":54,"13":49,"14":50,"15":54,"16":53,"17":52},
