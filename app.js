@@ -3,6 +3,7 @@ const retCarbVal = document.querySelector('#retCarbVal');
 const supCarbVal = document.querySelector('#supCarbVal');
 const ampVal = document.querySelector('#ampVal');
 const voltVal = document.querySelector('#voltVal');
+const dateTime = document.querySelector('#dateTime');
 
 const avgRetCarb = document.querySelector('#avgRetCarb');
 const avgSupCarb = document.querySelector('#avgSupCarb');
@@ -103,7 +104,15 @@ function calculateAverage(array){
     return (total/array.length).toFixed(2);
 }
 
+function updateTime(){
+    dateTime.innerText = new Date().toUTCString();
+}
+
+setInterval(updateTime, 1000);
+
 function refreshValues(){
+
+    
     
     if(returnCarbonArray.length){
         retCarbVal.innerText = (+returnCarbonArray[returnCarbonArray.length - 1]).toFixed(2);

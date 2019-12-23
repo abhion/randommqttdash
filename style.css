@@ -55,6 +55,11 @@ body{
     background-color: #31394d;
     border-radius: 3px;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+#dateTime{
+    font-size: 14px;
 }
 #dash-content{
     height: calc(100% - 64px);
