@@ -15,13 +15,13 @@ let returnCarbonArray = [], supplyCarbArray = [], ampArray = [], voltArray = [],
 
 
 
-new Chart(ctx, {
+let chart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['Return CO2', 'Supply CO2', 'Amps', 'Volts'],
         datasets: [{
             label: '# values',
-            data: [],
+            data: averageArray,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -105,6 +105,7 @@ function refreshValues(){
         retCarbVal.innerText = (+returnCarbonArray[returnCarbonArray.length - 1]).toFixed(2);
         avgRetCarb.innerText = calculateAverage(returnCarbonArray);
         averageArray[0] =  calculateAverage(returnCarbonArray);
+        refreshChart();
     }
     else{
         retCarbVal.innerText = 0;
@@ -115,6 +116,7 @@ function refreshValues(){
         voltVal.innerText = (+voltArray[voltArray.length - 1]).toFixed(2);
         avgVolt.innerText = calculateAverage(voltArray);
         averageArray[1] =  calculateAverage(voltArray);
+        refreshChart();
     }
     else{
         voltVal.innerText = 0;
@@ -125,6 +127,7 @@ function refreshValues(){
         supCarbVal.innerText = (+supplyCarbArray[supplyCarbArray.length - 1]).toFixed(2);
     avgSupCarb.innerText = calculateAverage(supplyCarbArray);
     averageArray[2] =  calculateAverage(supplyCarbArray);
+    refreshChart();
     
     }
     else{
@@ -136,6 +139,7 @@ function refreshValues(){
         ampVal.innerText = (+ampArray[ampArray.length - 1]).toFixed(2);
         avgAmp.innerText = calculateAverage(ampArray);
         averageArray[3] =  calculateAverage(ampArray);
+        refreshChart();
     }
     else{
         ampVal.innerText = 0;
@@ -148,7 +152,7 @@ function refreshValues(){
 }
 
 function refreshChart(){
-
+    chart.update();
 }
 
 
