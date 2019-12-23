@@ -46,7 +46,11 @@ let chart = new Chart(ctx, {
     }
 });
 
-var client = new Paho.Client('164.52.193.83', 1884, "clientIdj");
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+var client = new Paho.Client('164.52.193.83', 1884, randomIntFromInterval(1, 10000));
 
 client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
